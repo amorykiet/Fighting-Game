@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool isGrounded = false;
     bool isJumping = false;
+    bool canRun = true;
 
     // Update is called once per frame
     void Update()
@@ -72,6 +73,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2 (horizontalMove, rb.velocity.y);
+        if (canRun)
+        {
+            rb.velocity = new Vector2 (horizontalMove, rb.velocity.y);
+        }
+    }
+
+    public void disableRun()
+    {
+        canRun = false;
+        rb.velocity = Vector2.zero;
+    }
+    public void enableRun()
+    {
+        canRun = true;
     }
 }
