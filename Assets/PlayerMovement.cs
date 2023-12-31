@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float radiusCheck;
     public LayerMask whatIsGround;
+    public Animator animator;
 
     public float runSpeed = 7f;
     public float forceJump = 10f;
@@ -23,8 +25,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        animator.SetFloat("run speed", Math.Abs(horizontalMove));
+        animator.SetFloat("jump speed", Math.Abs(rb.velocity.y));
+        animator.SetFloat("jump velocity", rb.velocity.y);
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, radiusCheck, whatIsGround);
-        
+
         if (horizontalMove > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
@@ -57,6 +63,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.C))
         {
             isJumping = false;
+            if (rb.velocity.y > 0)
+            {
+                rb.velocity = Vector2.zero;
+            }
         }
     }
 
