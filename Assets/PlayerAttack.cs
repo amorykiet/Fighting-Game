@@ -65,8 +65,8 @@ public class PlayerAttack : MonoBehaviour
                     {
                         //enemisToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                     }
+                    animator.SetInteger("attack horizontal index", Random.Range(0,2));
                     animator.SetTrigger("attack horizontal");
-                    animator.SetInteger("attack horizontal index", Random.Range(0,1));
                 }
                 timeCouter = timeBtwAttack;
             }
