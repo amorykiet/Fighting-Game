@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask whatIsEnermy;
     public Transform attackDownCheck;
     public float damage;
+    public PlayerMovement movement;
 
     [Header("Attack Horizontal")]
     public Transform attackHorizontalPos;
@@ -28,11 +29,10 @@ public class PlayerAttack : MonoBehaviour
     public Transform attackDownPos;
     public float attackDownRangeX;
     public float attackDownRangeY;
-
+    Collider2D[] enemisToDamage;
 
     bool canAttackDown;
 
-    // Update is called once per frame
     void Update()
     {
         canAttackDown = !Physics2D.OverlapCircle(attackDownCheck.position, 0.1f);
@@ -43,30 +43,34 @@ public class PlayerAttack : MonoBehaviour
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
                     animator.SetTrigger("attack up");
-                    Collider2D[] enemisToDamage = Physics2D.OverlapBoxAll(attackUpPos.position, new Vector2( attackUpRangeX, attackUpRangeY), 0, whatIsEnermy);
+                    enemisToDamage = Physics2D.OverlapBoxAll (attackUpPos.position, new Vector2( attackUpRangeX, attackUpRangeY), 0, whatIsEnermy);
                     for (int i = 0; i < enemisToDamage.Length; i++)
                     {
-                        //enemisToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                        enemisToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                     }
                 }
                 else if (Input.GetKey(KeyCode.DownArrow) && canAttackDown)
                 {
                     animator.SetTrigger("attack down");
-                    Collider2D[] enemisToDamage = Physics2D.OverlapBoxAll(attackDownPos.position, new Vector2(attackDownRangeX, attackDownRangeY), 0, whatIsEnermy);
+                    enemisToDamage = Physics2D.OverlapBoxAll(attackDownPos.position, new Vector2(attackDownRangeX, attackDownRangeY), 0, whatIsEnermy);
                     for (int i = 0; i < enemisToDamage.Length; i++)
                     {
-                        //enemisToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                        enemisToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                        if (i == 0)
+                        {
+                            movement.jumpWithAttack();
+                        }
                     }
                 }
                 else
                 {
-                    Collider2D[] enemisToDamage = Physics2D.OverlapBoxAll(attackHorizontalPos.position, new Vector2(attackHorizontalRangeX, attackHorizontalRangeY), 0, whatIsEnermy);
+                    animator.SetInteger("attack horizontal index", Random.Range(0, 2));
+                    animator.SetTrigger("attack horizontal");
+                    enemisToDamage = Physics2D.OverlapBoxAll(attackHorizontalPos.position, new Vector2(attackHorizontalRangeX, attackHorizontalRangeY), 0, whatIsEnermy);
                     for (int i = 0; i < enemisToDamage.Length; i++)
                     {
-                        //enemisToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                        enemisToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                     }
-                    animator.SetInteger("attack horizontal index", Random.Range(0,2));
-                    animator.SetTrigger("attack horizontal");
                 }
                 timeCouter = timeBtwAttack;
             }

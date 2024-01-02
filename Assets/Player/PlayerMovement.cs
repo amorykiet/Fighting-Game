@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float runAttackSpeed = 3f;
     public float forceJump = 10f;
     public float jumpTime = 0f;
+    public float reactionForce;
 
     float jumpTimeCounter = 0f;
     float horizontalMove = 0f;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         speed = runSpeed;
+        Application.targetFrameRate = 60;
     }
     void Update()
     {
@@ -101,5 +103,10 @@ public class PlayerMovement : MonoBehaviour
         //canRun = true;
         canFlip = true;
         speed = runSpeed;
+    }
+    
+    public void jumpWithAttack()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, reactionForce);
     }
 }
