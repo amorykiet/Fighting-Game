@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded = false;
     bool isJumping = false;
     bool canRun = true;
+    bool canFlip = true;
     float speed;
 
     // Update is called once per frame
@@ -38,13 +39,16 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, radiusCheck, whatIsGround);
 
-        if (horizontalMove > 0)
+        if (canFlip)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        else if (horizontalMove < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
+            if (horizontalMove > 0)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            else if (horizontalMove < 0)
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
         }
 
         if (isGrounded && Input.GetKeyDown(KeyCode.C))
@@ -89,11 +93,13 @@ public class PlayerMovement : MonoBehaviour
     {
         //canRun = false;
         //rb.velocity = Vector2.zero;
+        canFlip = false;
         speed = runAttackSpeed;
     }
     public void enableRun()
     {
         //canRun = true;
+        canFlip = true;
         speed = runSpeed;
     }
 }
