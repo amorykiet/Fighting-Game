@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     public float runSpeed = 7f;
+    public float runAttackSpeed = 3f;
     public float forceJump = 10f;
     public float jumpTime = 0f;
 
@@ -21,11 +22,16 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded = false;
     bool isJumping = false;
     bool canRun = true;
+    float speed;
 
     // Update is called once per frame
+    private void Start()
+    {
+        speed = runSpeed;
+    }
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         animator.SetFloat("run speed", Math.Abs(horizontalMove));
         animator.SetFloat("jump speed", Math.Abs(rb.velocity.y));
         animator.SetFloat("jump velocity", rb.velocity.y);
@@ -81,11 +87,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void disableRun()
     {
-        canRun = false;
-        rb.velocity = Vector2.zero;
+        //canRun = false;
+        //rb.velocity = Vector2.zero;
+        speed = runAttackSpeed;
     }
     public void enableRun()
     {
-        canRun = true;
+        //canRun = true;
+        speed = runSpeed;
     }
 }
