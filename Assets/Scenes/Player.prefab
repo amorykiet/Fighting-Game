@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 4249519363889844867}
   - component: {fileID: 8378586228798285627}
   - component: {fileID: 7980549792860226335}
+  - component: {fileID: 5483328063892219744}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -340,6 +341,7 @@ MonoBehaviour:
     m_Bits: 128
   attackDownCheck: {fileID: 3213736138351870857}
   damage: 10
+  movement: {fileID: 0}
   attackHorizontalPos: {fileID: 80291781735920953}
   attackHorizontalRangeX: 1
   attackHorizontalRangeY: 1
@@ -372,6 +374,7 @@ MonoBehaviour:
   runAttackSpeed: 3
   forceJump: 10
   jumpTime: 0.3
+  reactionForce: 0
 --- !u!95 &7980549792860226335
 Animator:
   serializedVersion: 5
@@ -393,3 +396,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5483328063892219744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8648553011793726079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f057100dbc81be40b52632c76dd5c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

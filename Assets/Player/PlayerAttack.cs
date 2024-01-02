@@ -43,7 +43,7 @@ public class PlayerAttack : MonoBehaviour
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
                     animator.SetTrigger("attack up");
-                    enemisToDamage = Physics2D.OverlapBoxAll (attackUpPos.position, new Vector2( attackUpRangeX, attackUpRangeY), 0, whatIsEnermy);
+                    enemisToDamage = Physics2D.OverlapBoxAll(attackUpPos.position, new Vector2( attackUpRangeX, attackUpRangeY), 0, whatIsEnermy);
                     for (int i = 0; i < enemisToDamage.Length; i++)
                     {
                         enemisToDamage[i].GetComponent<Enemy>().TakeDamage(damage);

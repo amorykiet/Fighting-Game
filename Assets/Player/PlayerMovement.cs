@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         speed = runSpeed;
-        Application.targetFrameRate = 60;
+        enableRun();
     }
     void Update()
     {
@@ -91,16 +91,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void disableRun()
+    public void enableMoveAttack()
     {
-        //canRun = false;
-        //rb.velocity = Vector2.zero;
         canFlip = false;
         speed = runAttackSpeed;
     }
-    public void enableRun()
+    public void disableMoveAttack()
     {
-        //canRun = true;
         canFlip = true;
         speed = runSpeed;
     }
@@ -108,5 +105,16 @@ public class PlayerMovement : MonoBehaviour
     public void jumpWithAttack()
     {
         rb.velocity = new Vector2(rb.velocity.x, reactionForce);
+    }
+
+    public void disableRun()
+    {
+        canRun = false;
+        rb.velocity = Vector2.zero;
+    }
+
+    public void enableRun()
+    {
+        canRun = true;
     }
 }
