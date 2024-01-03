@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public Animator animator;
-
     public int health;
+    public HeartBar heartBar;
+
     bool isInvulnerable;
     // Start is called before the first frame update
     void Start()
@@ -26,15 +27,14 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isInvulnerable)
         {
+            heartBar.breakHeart(health);
             if (health > 1)
             {
                 health -= 1;
-                Debug.Log("Hurt");
                 animator.SetTrigger("hurt");
             }
             else
             {
-                Debug.Log("Death");
                 animator.SetTrigger("death");
             }
             isInvulnerable = true;
