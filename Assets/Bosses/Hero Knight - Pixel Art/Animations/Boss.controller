@@ -233,9 +233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastAttackTime: 0
-  attackTimeGap: 3
+  attackTimeGap: 2
   speed: 3
-  attackRange: 5
+  attackRange: 40
 --- !u!1101 &4262087110306084591
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        if (!canRun)
+        {
+            return;
+        }
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         animator.SetFloat("run speed", Math.Abs(horizontalMove));
         animator.SetFloat("jump speed", Math.Abs(rb.velocity.y));

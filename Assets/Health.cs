@@ -7,20 +7,21 @@ public class PlayerHealth : MonoBehaviour
     public Animator animator;
     public int health;
     public HeartBar heartBar;
+    public GameLogic gameLogic;
 
     bool isInvulnerable;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Hurt();
         }
-
     }
 
     public void Hurt()
     {
+        Debug.Log("Hurt");
         if (!isInvulnerable)
         {
             heartBar.breakHeart(health);
@@ -32,15 +33,12 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 animator.SetTrigger("death");
+                gameLogic.Lose();
             }
             isInvulnerable = true;
-            Physics2D.IgnoreLayerCollision(3, 7, true);
+            Physics2D.IgnoreLayerCollision(3, 7);
         }
     }
-
-
-
-
 
 
     public void comeBack()

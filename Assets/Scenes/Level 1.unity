@@ -744,7 +744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 541588736809157909, guid: 57452056d20b8a1458d10703dcea792d, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 910063357782813130, guid: 57452056d20b8a1458d10703dcea792d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -786,6 +786,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2854604599754799524, guid: 57452056d20b8a1458d10703dcea792d, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4934376679644765527, guid: 57452056d20b8a1458d10703dcea792d, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -803,6 +807,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1484708791}
     - target: {fileID: 4942435739749542478, guid: 57452056d20b8a1458d10703dcea792d, type: 3}
+      propertyPath: gameLogic
+      value: 
+      objectReference: {fileID: 1571829137}
+    - target: {fileID: 4942435739749542478, guid: 57452056d20b8a1458d10703dcea792d, type: 3}
       propertyPath: deathEffect
       value: 
       objectReference: {fileID: 0}
@@ -812,15 +820,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5398429783208663174, guid: 57452056d20b8a1458d10703dcea792d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5398429783208663174, guid: 57452056d20b8a1458d10703dcea792d, type: 3}
       propertyPath: attackRange
-      value: 2.3
+      value: 2.52
       objectReference: {fileID: 0}
     - target: {fileID: 5398429783208663174, guid: 57452056d20b8a1458d10703dcea792d, type: 3}
       propertyPath: attackOffset.x
-      value: -1.53
+      value: -1.94
       objectReference: {fileID: 0}
     - target: {fileID: 5398429783208663174, guid: 57452056d20b8a1458d10703dcea792d, type: 3}
       propertyPath: attackOffset.y
@@ -953,6 +961,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6968016824877936704, guid: c9f0312fa7cd13b4b83c9e702b00e2f9, type: 3}
   m_PrefabInstance: {fileID: 2879448074793882061}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1571829136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1571829138}
+  - component: {fileID: 1571829137}
+  m_Layer: 0
+  m_Name: Game Logic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1571829137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571829136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e58fef2a20a224f42bbcf647bf590e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1571829138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571829136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.75244, y: -3.1569312, z: 0.013221086}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1594120637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,6 +1680,10 @@ PrefabInstance:
       propertyPath: heartBar
       value: 
       objectReference: {fileID: 1594120639}
+    - target: {fileID: 5483328063892219744, guid: c9f0312fa7cd13b4b83c9e702b00e2f9, type: 3}
+      propertyPath: gameLogic
+      value: 
+      objectReference: {fileID: 1571829137}
     - target: {fileID: 6811682099344664791, guid: c9f0312fa7cd13b4b83c9e702b00e2f9, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -1709,3 +1765,4 @@ SceneRoots:
   - {fileID: 415331688}
   - {fileID: 1193524043}
   - {fileID: 1978024686}
+  - {fileID: 1571829138}

@@ -7,6 +7,7 @@ public class Boss_Health : MonoBehaviour
     public float health = 100;
     public bool isInvulnerable = false;
     public Animator animator;
+    public GameLogic gameLogic;
     
     // Start is called before the first frame update
 
@@ -26,6 +27,7 @@ public class Boss_Health : MonoBehaviour
         Debug.Log("Die");
         GetComponent<Collider2D>().enabled = false;
         isInvulnerable = true;
+        gameLogic.Win();
     }
 
 }
