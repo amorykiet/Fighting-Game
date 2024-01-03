@@ -9,11 +9,6 @@ public class PlayerHealth : MonoBehaviour
     public HeartBar heartBar;
 
     bool isInvulnerable;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -38,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
                 animator.SetTrigger("death");
             }
             isInvulnerable = true;
-            Physics2D.IgnoreLayerCollision(3, 7);
+            Physics2D.IgnoreLayerCollision(3, 7, true);
         }
     }
 

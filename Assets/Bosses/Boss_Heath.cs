@@ -5,7 +5,6 @@ using UnityEngine;
 public class Boss_Health : MonoBehaviour
 {
     public float health = 100;
-    public GameObject deathEffect;
     public bool isInvulnerable = false;
     
     // Start is called before the first frame update
@@ -22,19 +21,7 @@ public class Boss_Health : MonoBehaviour
 
     void Die()
     {
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-        Physics2D.IgnoreLayerCollision(3, 7);
-        
-    }
-    void Start()
-    {
-        
+        Physics2D.IgnoreLayerCollision(7, 3, true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
