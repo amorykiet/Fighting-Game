@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     public Transform player;
-    public bool isFlipped = false;
+    bool isFlipped = false;
     public void lookAtPlayer()
     {
         Vector3 flipped = transform.localScale;
@@ -24,15 +24,5 @@ public class Boss : MonoBehaviour
             isFlipped = true;
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

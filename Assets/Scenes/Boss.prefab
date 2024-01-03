@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4942435739749542478}
   m_Layer: 7
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,7 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  isFlipped: 0
 --- !u!114 &5398429783208663174
 MonoBehaviour:
   m_ObjectHideFlags: 0

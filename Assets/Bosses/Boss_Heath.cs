@@ -15,13 +15,14 @@ public class Boss_Health : MonoBehaviour
             return;
         health -= damage;
 
-        if (health <= 0)
-            Die();
+        if (health <= 0) Die();
     }
 
     void Die()
     {
-        Physics2D.IgnoreLayerCollision(7, 3, true);
+        Debug.Log("Die");
+        GetComponent<Collider2D>().enabled = false;
+        isInvulnerable = true;
     }
 
 }

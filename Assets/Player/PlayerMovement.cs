@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         speed = runSpeed;
         enableRun();
+
     }
     void Update()
     {

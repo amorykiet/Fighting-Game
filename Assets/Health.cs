@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Hurt();
         }
+
     }
 
     public void Hurt()
