@@ -46,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
                     enemisToDamage = Physics2D.OverlapBoxAll(attackUpPos.position, new Vector2( attackUpRangeX, attackUpRangeY), 0, whatIsEnermy);
                     for (int i = 0; i < enemisToDamage.Length; i++)
                     {
-                        enemisToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                        enemisToDamage[i].GetComponent<Boss_Health>().TakeDamage(damage);
                     }
                 }
                 else if (Input.GetKey(KeyCode.DownArrow) && canAttackDown)
@@ -55,7 +55,7 @@ public class PlayerAttack : MonoBehaviour
                     enemisToDamage = Physics2D.OverlapBoxAll(attackDownPos.position, new Vector2(attackDownRangeX, attackDownRangeY), 0, whatIsEnermy);
                     for (int i = 0; i < enemisToDamage.Length; i++)
                     {
-                        enemisToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                        enemisToDamage[i].GetComponent<Boss_Health>().TakeDamage(damage);
                         if (i == 0)
                         {
                             movement.jumpWithAttack();
@@ -69,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
                     enemisToDamage = Physics2D.OverlapBoxAll(attackHorizontalPos.position, new Vector2(attackHorizontalRangeX, attackHorizontalRangeY), 0, whatIsEnermy);
                     for (int i = 0; i < enemisToDamage.Length; i++)
                     {
-                        enemisToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                        enemisToDamage[i].GetComponent<Boss_Health>().TakeDamage(damage);
                     }
                 }
                 timeCouter = timeBtwAttack;
