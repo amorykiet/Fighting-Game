@@ -6,6 +6,7 @@ public class Boss_Health : MonoBehaviour
 {
     public float health = 100;
     public bool isInvulnerable = false;
+    public Animator animator;
     
     // Start is called before the first frame update
 
@@ -14,8 +15,10 @@ public class Boss_Health : MonoBehaviour
         if (isInvulnerable)
             return;
         health -= damage;
-
-        if (health <= 0) Die();
+        
+        animator.SetTrigger("Hurt");
+        if (health <= 0)
+            Die();
     }
 
     void Die()
