@@ -6,12 +6,13 @@ public class PlayerHealth : MonoBehaviour
 {
     public Animator animator;
 
+    public GameObject deathEffect;
     public int health;
     bool isInvulnerable;
     // Start is called before the first frame update
     void Start()
     {
-        health = 5;
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,6 +42,11 @@ public class PlayerHealth : MonoBehaviour
             Physics2D.IgnoreLayerCollision(3, 7);
         }
     }
+
+
+
+
+
 
     public void comeBack()
     {
