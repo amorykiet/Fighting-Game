@@ -267,6 +267,7 @@ MonoBehaviour:
   attackTimeGap: 2
   speed: 3
   attackRange: 40
+  playerHealth: {fileID: 0}
 --- !u!1102 &5068868123648883804
 AnimatorState:
   serializedVersion: 6
@@ -305,7 +306,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 7960494036821471973}
-    m_Position: {x: 130, y: 80, z: 0}
+    m_Position: {x: 200, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3160044950767302199}
     m_Position: {x: 130, y: 210, z: 0}
@@ -314,10 +315,10 @@ AnimatorStateMachine:
     m_Position: {x: 130, y: 340, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5068868123648883804}
-    m_Position: {x: 440, y: 200, z: 0}
+    m_Position: {x: 440, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3303471417882977471}
-    m_Position: {x: 450, y: 320, z: 0}
+    m_Position: {x: 440, y: 340, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -3418317911763560493}
