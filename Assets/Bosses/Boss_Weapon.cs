@@ -22,6 +22,7 @@ public class Boss_Weapon : MonoBehaviour
             colInfo.GetComponent<PlayerHealth>().Hurt();
         }
     }
+
     void OnDrawGizmosSelected()
     {
         Vector3 pos = transform.position;
@@ -29,16 +30,5 @@ public class Boss_Weapon : MonoBehaviour
         pos += transform.up * attackOffset.y;
 
         Gizmos.DrawWireSphere(pos, attackRange);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -21,7 +21,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void Hurt()
     {
-        Debug.Log("Hurt");
         if (!isInvulnerable)
         {
             heartBar.breakHeart(health);

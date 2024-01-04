@@ -13,13 +13,11 @@ public class Boss_Health : MonoBehaviour
 
     public void TakeDamage(float damage) { 
         
-        if (isInvulnerable)
-            return;
+        if (isInvulnerable) return;
         health -= damage;
         
         animator.SetTrigger("Hurt");
-        if (health <= 0)
-            Die();
+        if (health <= 0) Die();
     }
 
     void Die()
@@ -30,4 +28,13 @@ public class Boss_Health : MonoBehaviour
         gameLogic.Win();
     }
 
+    public void enableInvulnerable()
+    {
+        isInvulnerable = true;
+    }
+
+    public void disableInvulnerable()
+    {
+        isInvulnerable = false;
+    }
 }
