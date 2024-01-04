@@ -8,24 +8,29 @@ public class Boss_Run : StateMachineBehaviour
     public float attackTimeGap = 3f;
     public float speed = 2.5f;
     public float attackRange = 3f;
+    public PlayerHealth playerHealth;
+
     Transform player;
     Rigidbody2D rb;
     Boss boss;
-    Boss_Health health;
-    Boss_Health hurt;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         rb = animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<Boss>();
-        health = animator.GetComponent<Boss_Health>();
-        hurt = animator.GetComponent<Boss_Health>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if(playerHealth.health <= 0)
+        {
+            animator.SetTrigger("Idle");
+            return;
+        }
+
         boss.lookAtPlayer();
         Vector2 target = new Vector2(player.position.x, rb.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
@@ -38,14 +43,6 @@ public class Boss_Run : StateMachineBehaviour
                 animator.SetTrigger("Attack");
                 lastAttackTime = Time.time;
             }
-        }
-
-
-
-        if (health.health == 0)
-        {
-            
-            animator.SetTrigger("Die");
         }
 
     }

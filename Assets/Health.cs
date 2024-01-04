@@ -24,9 +24,9 @@ public class PlayerHealth : MonoBehaviour
         if (!isInvulnerable)
         {
             heartBar.breakHeart(health);
-            if (health > 1)
+            health -= 1;
+            if (health > 0)
             {
-                health -= 1;
                 animator.SetTrigger("hurt");
             }
             else
@@ -35,7 +35,6 @@ public class PlayerHealth : MonoBehaviour
                 gameLogic.Lose();
             }
             isInvulnerable = true;
-            Physics2D.IgnoreLayerCollision(3, 7);
         }
     }
 
@@ -43,7 +42,6 @@ public class PlayerHealth : MonoBehaviour
     public void comeBack()
     {
         isInvulnerable = false;
-        Physics2D.IgnoreLayerCollision(3, 7, false);
     }
 
 

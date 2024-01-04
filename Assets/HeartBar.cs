@@ -8,7 +8,6 @@ public class HeartBar : MonoBehaviour
 
     public void breakHeart(int currentHearts)
     {
-        //Debug.Log(heartAnimators.Length);
         heartAnimators[currentHearts - 1].SetTrigger("break");
     }
 

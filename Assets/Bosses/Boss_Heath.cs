@@ -15,14 +15,14 @@ public class Boss_Health : MonoBehaviour
         
         if (isInvulnerable) return;
         health -= damage;
-        
         animator.SetTrigger("Hurt");
+
         if (health <= 0) Die();
     }
 
     void Die()
     {
-        Debug.Log("Die");
+        animator.SetTrigger("Die");
         GetComponent<Collider2D>().enabled = false;
         isInvulnerable = true;
         gameLogic.Win();
