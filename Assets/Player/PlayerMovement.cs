@@ -17,12 +17,12 @@ public class PlayerMovement : MonoBehaviour
     public float forceJump = 10f;
     public float jumpTime = 0f;
     public float reactionForce;
+    public bool canRun = true;
 
     float jumpTimeCounter = 0f;
     float horizontalMove = 0f;
     bool isGrounded = false;
     bool isJumping = false;
-    bool canRun = true;
     bool canFlip = true;
     float speed;
 

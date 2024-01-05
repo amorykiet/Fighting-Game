@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public bool canAttack = true;
     public float timeBtwAttack;
     float timeCouter;
     public Animator animator;
@@ -35,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
+        if (!canAttack) return;
         canAttackDown = !Physics2D.OverlapCircle(attackDownCheck.position, 0.1f);
         if (timeCouter <= 0)
         {

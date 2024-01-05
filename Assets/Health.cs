@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+
     public void Hurt()
     {
         if (!isInvulnerable)
@@ -33,6 +34,8 @@ public class PlayerHealth : MonoBehaviour
             {
                 animator.SetTrigger("death");
                 gameLogic.Lose();
+                gameObject.GetComponent<PlayerAttack>().canAttack = false;
+                gameObject.GetComponent<PlayerMovement>().canRun = false;
             }
             isInvulnerable = true;
         }
