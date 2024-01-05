@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public HeartBar heartBar;
     public GameLogic gameLogic;
+    public GameObject Hollow;
 
     public float timeRecover = 5;
     public float timeCouter;
@@ -15,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     bool isInvulnerable;
     bool exitedBoss = true;
     bool isDead;
+    Transform playerPos;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -35,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
         timeCouter = timeRecover;
         exitedBoss = true;
         isDead = false;
+        playerPos = GetComponent<Transform>();
     }
 
     private void Update()
@@ -82,4 +85,8 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
+    public void HollowFall()
+    {
+        Instantiate(Hollow, playerPos);
+    }
 }
