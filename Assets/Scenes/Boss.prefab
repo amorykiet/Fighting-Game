@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 1
-  attackOffset: {x: -2.66, y: 0.56, z: 0}
+  attackOffset: {x: -2.17, y: 2.12, z: 0}
   attackRange: 1.83
   attackMask:
     serializedVersion: 2
@@ -228,3 +228,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   isInvulnerable: 0
+  animator: {fileID: 0}
+  gameLogic: {fileID: 0}
