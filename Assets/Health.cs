@@ -9,43 +9,77 @@ public class PlayerHealth : MonoBehaviour
     public HeartBar heartBar;
     public GameLogic gameLogic;
 
-    bool isInvulnerable;
+    public float timeRecover = 5;
+    public float timeCouter;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    bool isInvulnerable;
+    bool exitedBoss = true;
+    bool isDead;
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        if (isDead) { return; }
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Hurt();
+            exitedBoss = false;
         }
     }
 
-
-    public void Hurt()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!isInvulnerable)
+        exitedBoss = true;
+    }
+    private void Start()
+    {
+        timeCouter = timeRecover;
+        exitedBoss = true;
+        isDead = false;
+    }
+
+    private void Update()
+    {
+        if(isDead) { return; }
+        if (isInvulnerable) 
         {
-            heartBar.breakHeart(health);
-            health -= 1;
-            if (health > 0)
+            if (timeCouter > 0) 
             {
-                animator.SetTrigger("hurt");
+                timeCouter -= Time.deltaTime;
             }
             else
             {
-                animator.SetTrigger("death");
-                gameLogic.Lose();
-                gameObject.GetComponent<PlayerAttack>().canAttack = false;
-                gameObject.GetComponent<PlayerMovement>().canRun = false;
+                timeCouter = timeRecover;
+                isInvulnerable = false;
+                if (!exitedBoss)
+                {
+                    Hurt();
+                }
             }
-            isInvulnerable = true;
         }
     }
 
-
-    public void comeBack()
+    public void Hurt()
     {
-        isInvulnerable = false;
-    }
+        if(isInvulnerable) { return; }
+        heartBar.breakHeart(health);
+        health -= 1;
+        if (health > 0)
+        {
+            animator.SetTrigger("hurt");
+        }
+        else
+        {
+            exitedBoss = true;
+            animator.SetTrigger("death");
+            gameLogic.Lose();
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+            gameObject.GetComponent<PlayerAttack>().canAttack = false;
+            gameObject.GetComponent<PlayerMovement>().canRun = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            isDead = true;
+        }
+        isInvulnerable = true;
 
+    }
 
 }

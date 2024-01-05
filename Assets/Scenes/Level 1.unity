@@ -1690,6 +1690,10 @@ PrefabInstance:
       propertyPath: gameLogic
       value: 
       objectReference: {fileID: 1571829137}
+    - target: {fileID: 5483328063892219744, guid: c9f0312fa7cd13b4b83c9e702b00e2f9, type: 3}
+      propertyPath: timeRecover
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6811682099344664791, guid: c9f0312fa7cd13b4b83c9e702b00e2f9, type: 3}
       propertyPath: m_BodyType
       value: 0

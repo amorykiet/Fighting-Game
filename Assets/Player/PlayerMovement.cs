@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!canRun)
         {
+            animator.SetFloat("run speed", 0);
+            animator.SetFloat("jump speed", 0);
             return;
         }
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
