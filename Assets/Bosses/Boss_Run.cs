@@ -40,6 +40,7 @@ public class Boss_Run : StateMachineBehaviour
         {
             if (Time.time - lastAttackTime > attackTimeGap)
             {
+                attackTimeGap = Random.Range(1.0f, 3.0f);
                 animator.SetTrigger("Attack");
                 lastAttackTime = Time.time;
             }
