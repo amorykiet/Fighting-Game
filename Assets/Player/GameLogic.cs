@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameLogic : MonoBehaviour
 {
     Animator FadeEffect;
+    int maxLevels = 5;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class GameLogic : MonoBehaviour
 
     void UnlockNewLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex")) 
+        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex") && PlayerPrefs.GetInt("UnlockedLevels", 1) < maxLevels) 
         {
             PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
             PlayerPrefs.SetInt("UnlockedLevels", PlayerPrefs.GetInt("UnlockedLevels", 1) + 1);
