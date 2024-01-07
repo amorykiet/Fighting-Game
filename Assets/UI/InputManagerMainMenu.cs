@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
+    Animator animator;
+    int sceneOption;
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        PlayerPrefs.SetInt("LastIsWin", 3);
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -17,15 +24,24 @@ public class InputManager : MonoBehaviour
     {
         Application.Quit();
         UnityEditor.EditorApplication.isPlaying = false;
+        PlayerPrefs.SetInt("LastIsWin", 3);
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        sceneOption = 1;
+        animator.SetTrigger("FadeOut");
     }
 
     public void Optioning()
     {
-        SceneManager.LoadScene(2);
+
+        sceneOption = 2;
+        animator.SetTrigger("FadeOut");
+    }
+
+    public void NextScene()
+    {
+        SceneManager.LoadScene(sceneOption);
     }
 }

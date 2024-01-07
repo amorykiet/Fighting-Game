@@ -25,7 +25,6 @@ public class Boss_Health : MonoBehaviour
         animator.SetTrigger("Die");
         GetComponent<Collider2D>().enabled = false;
         isInvulnerable = true;
-        gameLogic.Win();
     }
 
     public void enableInvulnerable()
@@ -36,5 +35,10 @@ public class Boss_Health : MonoBehaviour
     public void disableInvulnerable()
     {
         isInvulnerable = false;
+    }
+
+    public void ExitWin()
+    {
+        gameLogic.Win();
     }
 }

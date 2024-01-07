@@ -5,17 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
 {
+    Animator FadeEffect;
+
+    private void Awake()
+    {
+        FadeEffect = GetComponent<Animator>();
+    }
     public void Win()
     {
-        Debug.Log("VICTORY");
+        PlayerPrefs.SetInt("LastIsWin", 0);
+        FadeEffect.SetTrigger("Win");
         UnlockNewLevel();
-        SceneManager.LoadScene(1);
     }
 
     public void Lose()
     {
-        Debug.Log("DEFEAT");
-        SceneManager.LoadScene(1);
+        PlayerPrefs.SetInt("LastIsWin", 1);
+        FadeEffect.SetTrigger("Lose");
     }
 
     void UnlockNewLevel()
@@ -26,5 +32,10 @@ public class GameLogic : MonoBehaviour
             PlayerPrefs.SetInt("UnlockedLevels", PlayerPrefs.GetInt("UnlockedLevels", 1) + 1);
             PlayerPrefs.Save();
         }
+    }
+
+    public void BackToBossMenu()
+    {
+        SceneManager.LoadScene(1);
     }
 }

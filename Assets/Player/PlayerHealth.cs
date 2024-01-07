@@ -74,7 +74,6 @@ public class PlayerHealth : MonoBehaviour
         {
             exitedBoss = true;
             animator.SetTrigger("death");
-            gameLogic.Lose();
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             gameObject.GetComponent<PlayerAttack>().canAttack = false;
             gameObject.GetComponent<PlayerMovement>().canRun = false;
@@ -88,5 +87,10 @@ public class PlayerHealth : MonoBehaviour
     public void HollowFall()
     {
         Instantiate(Hollow, playerPos);
+    }
+
+    public void exitLose()
+    {
+        gameLogic.Lose();
     }
 }
