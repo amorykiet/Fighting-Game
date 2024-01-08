@@ -266,7 +266,7 @@ MonoBehaviour:
   lastAttackTime: 0
   attackTimeGap: 2
   speed: 3
-  attackRange: 40
+  attackRange: 5
   playerHealth: {fileID: 0}
 --- !u!1102 &5068868123648883804
 AnimatorState:

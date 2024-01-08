@@ -23,7 +23,7 @@ public class InputManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        //UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
         PlayerPrefs.SetInt("LastIsWin", 3);
     }
 
