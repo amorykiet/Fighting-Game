@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Boss_Health : MonoBehaviour
 {
+    public bool dead = false;
     public float health = 100;
     public bool isInvulnerable = false;
     public Animator animator;
@@ -39,6 +40,6 @@ public class Boss_Health : MonoBehaviour
 
     public void ExitWin()
     {
-        gameLogic.Win();
+        dead = true;
     }
 }

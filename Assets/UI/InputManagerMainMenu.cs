@@ -23,7 +23,7 @@ public class InputManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         PlayerPrefs.SetInt("LastIsWin", 3);
     }
 
@@ -40,6 +40,12 @@ public class InputManager : MonoBehaviour
         animator.SetTrigger("FadeOut");
     }
 
+    public void Tutorial()
+    {
+
+        sceneOption = 8;
+        animator.SetTrigger("FadeOut");
+    }
     public void NextScene()
     {
         SceneManager.LoadScene(sceneOption);
